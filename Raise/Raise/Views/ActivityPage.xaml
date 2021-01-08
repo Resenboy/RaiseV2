@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+			 xmlns:viewModel="clr-namespace:Raise.ViewModels"
+			 xmlns:local="clr-namespace:Raise.Resources"
+			 xmlns:customrenderers="clr-namespace:Raise.CustomRenderers"
+			 mc:Ignorable="d"
+			 Title="Minhas Atividades"
+			 Shell.NavBarIsVisible="False"
+			 Shell.TabBarIsVisible="True"
+			 x:Class="Raise.Views.ActivityPage"
+			 x:Name="MyPage"
+			 xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+	<ContentPage.BindingContext>
+		<viewModel:ActivityPageViewModel />
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<x:Array Type="{x:Type x:String}"
+					 x:Key="Imgs">
+
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://www.infoescola.com/wp-content/uploads/2013/01/stand-up-paddle_179451803.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+				<x:String>https://s3.amazonaws.com/pu-mgr/default/a0RG000000nUNKUMA4/56e728f2e4b01c5974d709cd.jpg</x:String>
+			</x:Array>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<RefreshView IsRefreshing="{Binding IsBusy}"
+					 Command="{Binding RefreshCommand}">
+			<CollectionView ItemsSource="{Binding UserPosts}"
+							EmptyView="Nenhuma Atividade aqui... :("
+							VerticalScrollBarVisibility="Never"
+							ItemSizingStrategy="MeasureAllItems"
+							ItemsUpdatingScrollMode="KeepScrollOffset"
+							x:Name="CollectionPosts">
+				<CollectionView.ItemsLayout>
+					<LinearItemsLayout Orientation="Vertical" />
+				</CollectionView.ItemsLayout>
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+
+						<Grid RowSpacing="0"
+							  ColumnSpacing="0"
+							  Padding="10,0,10,10">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="220" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Frame Padding="0"
+								   Grid.RowSpan="2"
+								   BorderColor="White"
+								   CornerRadius="10"
+								   HasShadow="True"
+								   IsClippedToBounds="True"
+								   HorizontalOptions="FillAndExpand"
+								   VerticalOptions="FillAndExpand">
+
+								<StackLayout>
+
+									<!--Foto, nome e infos do perfil-->
+									<FlexLayout Direction="Row"
+												AlignItems="Stretch"
+												JustifyContent="SpaceBetween"
+												Margin="5">
+										<Button Text="{x:Static local:Icons.User}"
+												FontFamily="FontAwesomeBold"
+												CornerRadius="40"
+												FontSize="30"
+												WidthRequest="50"
+												HeightRequest="50"/>
+										<StackLayout FlexLayout.Grow="1"
+													 Margin="10,0,10,0"
+													 Spacing="0">
+
+											<Label Text="Fulano da Silva" />
+											<Label Text="Jogador Master do #AugusTeam"
+												   FontSize="9"
+												   TextColor="Gray"/>
+											<Label Text="Patrocinado por @Monster"
+												   FontSize="7"
+												   TextColor="Gray" />
+										</StackLayout>
+										<Image FlexLayout.AlignSelf="Start">
+											<Image.Source>
+												<FontImageSource FontFamily="FontAwesomeBold"
+																 Color="Black"
+																 Size="20"
+																 Glyph="{x:Static local:Icons.AngleDown}" />
+											</Image.Source>
+										</Image>
+									</FlexLayout>
+
+									<!--Comentario do Post-->
+									<FlexLayout>
+										<Expander FlexLayout.AlignSelf="End">
+											<Expander.Header>
+												<Label FontAttributes="Bold"
+													   MaxLines="2"
+													   LineBreakMode="CharacterWrap">
+													<Label.FormattedText>
+														<FormattedString>
+															<FormattedString.Spans>
+																<Span Text="Aquele final espetacular" TextDecorations="Underline"/>
+																<!--<Span Text="Clique para ler" TextColor="BlueViolet" FontSize="Micro"/>-->
+															</FormattedString.Spans>
+														</FormattedString>
+													</Label.FormattedText>
+												</Label>
+											</Expander.Header>
+											<Expander.ContentTemplate>
+												<DataTemplate>
+													<StackLayout>
+														<Label Text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, 
+											   by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+											   you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet 
+											   tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 
+											   200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated 
+											   Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+															   FontAttributes="Bold"
+															   FontSize="Small" />
+
+														<lottie:AnimationView x:Name="animationView"
+															  Animation="animation_nike.json"
+															  AutoPlay="true"
+															  HorizontalOptions="Center"
+															  VerticalOptions="CenterAndExpand">
+														</lottie:AnimationView>
+													</StackLayout>
+												</DataTemplate>
+											</Expander.ContentTemplate>
+										</Expander>
+									</FlexLayout>
+
+									<Grid>
+										<ffimageloading:CachedImage x:Name="CurrentImage"
+																	Source="{Binding UrlPostImage}"
+																	BitmapOptimizations="True"
+																	CacheType="Memory"
+																	Aspect="AspectFill"
+																	HeightRequest="220"
+																	CacheDuration="30">
+											<ffimageloading:CachedImage.GestureRecognizers>
+												<TapGestureRecognizer Command="{Binding Path=BindingContext.OpenActivityDetailCommand, Source={x:Reference MyPage}}"
+																	  CommandParameter="{Binding}"
+																	  NumberOfTapsRequired="1" />
+											</ffimageloading:CachedImage.GestureRecognizers>
+										</ffimageloading:CachedImage>
+
+										<ActivityIndicator IsVisible="{Binding IsLoading}"
+														   BindingContext="{x:Reference CurrentImage}"
+														   IsRunning="{Binding IsLoading}"
+														   VerticalOptions="Center"
+														   HorizontalOptions="Center" />
+									</Grid>
+
+									<FlexLayout JustifyContent="SpaceAround" 
+												HeightRequest="30"
+												AlignContent="Center"
+												AlignItems="Center">
+										<Label>
+											<Label.FormattedText>
+												<FormattedString>
+													<FormattedString.Spans>
+														<Span Text="{x:Static local:Icons.ThumbsUp}"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="15" 
+															  CharacterSpacing="10"/>
+														<Span Text="Curtir"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="Micro"/>
+													</FormattedString.Spans>
+												</FormattedString>
+											</Label.FormattedText>
+										</Label>
+										<Label>
+											<Label.FormattedText>
+												<FormattedString>
+													<FormattedString.Spans>
+														<Span Text="{x:Static local:Icons.Comment}"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="15"
+															  CharacterSpacing="10"/>
+														<Span Text="Comentar"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="Micro" />
+													</FormattedString.Spans>
+												</FormattedString>
+											</Label.FormattedText>
+										</Label>
+										<Label>
+											<Label.FormattedText>
+												<FormattedString>
+													<FormattedString.Spans>
+														<Span Text="{x:Static local:Icons.ShareSquare}"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="15"
+															  CharacterSpacing="10"/>
+														<Span Text="Compartilhar"
+															  FontFamily="FontAwesomeRegular"
+															  FontSize="Micro"/>
+													</FormattedString.Spans>
+												</FormattedString>
+											</Label.FormattedText>
+										</Label>
+									</FlexLayout>
+
+									<BoxView BackgroundColor="DimGray"
+											 Opacity=".7"
+											 Margin="10,0"
+											 HeightRequest="1"/>
+
+									<FlexLayout JustifyContent="SpaceAround">
+										<StackLayout Spacing="0" 
+													 BackgroundColor="AntiqueWhite"
+													 FlexLayout.Grow="1">
+											<Label Text="152 "
+												   HorizontalTextAlignment="Center" />
+											<Label Text="Comentários"
+												   HorizontalTextAlignment="Center" />
+										</StackLayout>
+										<StackLayout Spacing="0"
+													 HorizontalOptions="Center"
+													 BackgroundColor="SeaGreen"
+													 FlexLayout.Grow="1">
+											<Label Text="45 " 
+												   HorizontalTextAlignment="Center"/>
+											<Label Text="Curtidas"
+												   HorizontalTextAlignment="Center" />
+										</StackLayout>
+									</FlexLayout>
+
+									
+									<!--<FlexLayout Direction="Column"
+												Padding="10,5"
+												Grid.Row="1">
+										<Label TextColor="#C8A7D3"
+											   FontSize="Small"
+											   Text="{Binding Name, StringFormat='{0}.'}">
+											--><!--<Label.FormattedText>
+												<FormattedString>
+													<FormattedString.Spans>
+														<Span  />
+														<Span Text=" está " />
+														<Span Text="{Binding Activity}" />
+														<Span Text="{Binding ProfileType,StringFormat=' ({0}).'}" />
+													</FormattedString.Spans>
+												</FormattedString>
+											</Label.FormattedText>--><!--
+										</Label>
+
+										<Expander>
+											<Expander.Header>
+												<Label Text="Ver Detalhes"
+													   FontAttributes="Bold"
+													   FontSize="Medium" />
+											</Expander.Header>
+											<Expander.ContentTemplate>
+												<DataTemplate>
+													<StackLayout>
+														<StackLayout Orientation="Horizontal">
+															<Label Text="{x:Static local:Icons.Heart}"
+																   FontFamily="FontAwesomeBold"
+																   FontSize="20" />
+															<Image Source="https://cdn0.iconfinder.com/data/icons/ui-line-pixel-perfect-3/32/user_interface_UI_line_alarm_hour_clock_time-128.png"
+																   Aspect="AspectFill"
+																   HeightRequest="20"
+																   WidthRequest="20"
+																   HorizontalOptions="Start"
+																   VerticalOptions="Center" />
+															<Label VerticalOptions="Center"
+																   FontSize="Micro"
+																   Text="{Binding Date, StringFormat='{0:dd}/{0:MM} - {0:HH}:{0:MM} pm'}" />
+
+															<Image Source="https://cdn1.iconfinder.com/data/icons/random-crafticons/48/misc-_navigation_gps-128.png"
+																   Aspect="AspectFill"
+																   HeightRequest="20"
+																   WidthRequest="20"
+																   HorizontalOptions="Start"
+																   VerticalOptions="Center"
+																   Margin="10,0,0,0" />
+															<Label VerticalOptions="Center"
+																   HorizontalOptions="Start"
+																   FontSize="Micro"
+																   Text="{Binding Place, StringFormat='{0} - Brasil'}" />
+
+														</StackLayout>
+
+														<StackLayout Margin="0,10"
+																	 Spacing="0">
+															<Label x:Name="Maxx"
+																   Text="{Binding Description}"
+																   MaxLines="5"
+																   LineBreakMode="TailTruncation" />
+														</StackLayout>
+														<Label Text="{Binding Hashtags}" />
+
+														<StackLayout Orientation="Horizontal"
+																	 Margin="0,10,0,0">
+															<Image Source="https://cdn2.iconfinder.com/data/icons/essential-web-1-1/50/heart-love-like-favorite-prefered-128.png"
+																   Aspect="AspectFill"
+																   HeightRequest="20"
+																   WidthRequest="20"
+																   HorizontalOptions="Start"
+																   VerticalOptions="Center" />
+															<Label VerticalOptions="Center"
+																   FontSize="Micro"
+																   Text="{Binding Likes, StringFormat='{0} Likes'}" />
+
+															<Image Source="https://cdn0.iconfinder.com/data/icons/business-management-3-4/256/m-57-128.png"
+																   Aspect="AspectFill"
+																   HeightRequest="20"
+																   WidthRequest="20"
+																   HorizontalOptions="EndAndExpand"
+																   VerticalOptions="Center" />
+															<Label VerticalOptions="Center"
+																   HorizontalOptions="End"
+																   FontSize="Micro"
+																   Text="{Binding Comments, StringFormat='{0} Comentários'}" />
+
+															<Image Source="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-share-128.png"
+																   Aspect="AspectFill"
+																   HeightRequest="20"
+																   WidthRequest="20"
+																   HorizontalOptions="EndAndExpand" />
+														</StackLayout>
+													</StackLayout>
+												</DataTemplate>
+											</Expander.ContentTemplate>
+										</Expander>
+
+									</FlexLayout>-->
+								</StackLayout>
+							</Frame>
+						</Grid>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</RefreshView>
+	</ContentPage.Content>
+</ContentPage>

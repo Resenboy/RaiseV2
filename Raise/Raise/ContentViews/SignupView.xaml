@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customrenderers="clr-namespace:Raise.CustomRenderers"
+			 mc:Ignorable="d"
+             x:Class="Raise.ContentViews.SignupView">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Style TargetType="Button"
+				   x:Key="RoundedButton">
+				<Setter Property="CornerRadius"
+						Value="10" />
+				<Setter Property="TextColor"
+						Value="White" />
+				<Setter Property="Padding"
+						Value="5" />
+			</Style>
+
+			<Style TargetType="Entry">
+				<Setter Property="FontSize"
+						Value="Small" />
+			</Style>
+			
+		</ResourceDictionary>
+	</ContentView.Resources>
+	
+    <ContentView.Content>
+        <FlexLayout Direction="Column"
+					Padding="15,10">
+            <StackLayout HeightRequest="90"
+						 Margin="0,0,0,15">
+                <Entry Placeholder="Email"
+					   Text="{Binding User.Email}"
+					   Margin="0"
+					   CursorPosition="3"/>
+                <Entry Placeholder="Criar uma Senha"
+					   IsPassword="True"
+					   Text="{Binding User.Password}"
+					   Margin="0" 
+					   CursorPosition="4"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+						 Spacing="10"
+						 FlexLayout.Grow="1">
+                <CheckBox Color="Black"
+						  HorizontalOptions="Start"
+						  IsChecked="{Binding User.AcceptedTerms}" />
+                <Label FontSize="Micro"
+					   VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Eu aceito as " />
+                                <Span Text="Políticas de Privacidade "
+									  TextDecorations="Underline"
+									  TextColor="CornflowerBlue" />
+                                <Span Text="e os " />
+                                <Span Text="Termos e Condições "
+									  TextDecorations="Underline"
+									  TextColor="CornflowerBlue" />
+                                <Span Text="especificados pelo " />
+                                <Span Text="RAISE." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <Button Text="Registrar"
+					Command="{Binding CreateUserCommand}"
+					CommandParameter="{Binding User}"
+					TextColor="White"
+					CornerRadius="10"
+					Margin="0,10"
+					BackgroundColor="Black" />
+
+            <Label Text="ou cadastre-se via"
+				   Margin="0,10,0,0"
+				   FlexLayout.AlignSelf="Center"
+				   FlexLayout.Grow="1" />
+
+			<StackLayout Spacing="5"
+						 HeightRequest="80"
+						 Margin="0,0,0,20">
+
+				<Button Text="Facebook"
+						TextColor="White"
+						BackgroundColor="#4464A9"
+						Style="{x:StaticResource RoundedButton}"></Button>
+				<Button Text="Google"
+						BackgroundColor="#A93528"
+						Style="{x:StaticResource RoundedButton}"></Button>
+				
+				<!--<Frame HorizontalOptions="CenterAndExpand"
+					   BorderColor="LightGray"
+					   CornerRadius="40">
+                    <Image Source="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"
+						   HeightRequest="40"
+						   WidthRequest="40" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+
+                <Frame HorizontalOptions="CenterAndExpand"
+					   BorderColor="LightGray"
+					   CornerRadius="40">
+                    <Image Source="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Google-512.png"
+						   HeightRequest="40"
+						   WidthRequest="40"/>
+                </Frame>-->
+
+            </StackLayout>
+
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

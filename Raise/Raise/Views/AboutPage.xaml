@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Raise.Views.AboutPage"
+             xmlns:vm="clr-namespace:Raise.ViewModels"
+			 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+			 Title="{Binding Title}"
+			 Shell.NavBarIsVisible="False">
+
+	<ContentPage.BindingContext>
+		<vm:AboutViewModel />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Color x:Key="Primary">#2196F3</Color>
+			<Color x:Key="Accent">#96d1ff</Color>
+			<Color x:Key="LightTextColor">#999999</Color>
+
+			<x:Array Type="{x:Type x:String}"
+					 x:Key="Imgs">
+				<x:String>https://i.pinimg.com/564x/ce/50/53/ce50532e4fc5a18035c854d5babfe9fe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/af/ef/dd/afefddd94f8a14018d875b6c436d6675.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/e8/44/cc/e844cca330436c649d24b28cc22d85bc.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/54/b5/01/54b50107288b9e4df513f0a6293607a3.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/7e/61/43/7e6143260212fa01af47785ace6edfef.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/80/29/b5/8029b536868412263927ecb699e47d93.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/c9/60/58/c96058849f63851ef447e10dcf3b498a.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/9f/ed/ae/9fedae67312c50001522120a9b298374.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/ce/50/53/ce50532e4fc5a18035c854d5babfe9fe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/af/ef/dd/afefddd94f8a14018d875b6c436d6675.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/e8/44/cc/e844cca330436c649d24b28cc22d85bc.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/54/b5/01/54b50107288b9e4df513f0a6293607a3.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/7e/61/43/7e6143260212fa01af47785ace6edfef.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/80/29/b5/8029b536868412263927ecb699e47d93.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/c9/60/58/c96058849f63851ef447e10dcf3b498a.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/9f/ed/ae/9fedae67312c50001522120a9b298374.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/ce/50/53/ce50532e4fc5a18035c854d5babfe9fe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/af/ef/dd/afefddd94f8a14018d875b6c436d6675.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/e8/44/cc/e844cca330436c649d24b28cc22d85bc.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/54/b5/01/54b50107288b9e4df513f0a6293607a3.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/7e/61/43/7e6143260212fa01af47785ace6edfef.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/80/29/b5/8029b536868412263927ecb699e47d93.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/c9/60/58/c96058849f63851ef447e10dcf3b498a.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/9f/ed/ae/9fedae67312c50001522120a9b298374.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/ce/50/53/ce50532e4fc5a18035c854d5babfe9fe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/af/ef/dd/afefddd94f8a14018d875b6c436d6675.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/e8/44/cc/e844cca330436c649d24b28cc22d85bc.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/54/b5/01/54b50107288b9e4df513f0a6293607a3.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/7e/61/43/7e6143260212fa01af47785ace6edfef.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/80/29/b5/8029b536868412263927ecb699e47d93.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/c9/60/58/c96058849f63851ef447e10dcf3b498a.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/9f/ed/ae/9fedae67312c50001522120a9b298374.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/ce/50/53/ce50532e4fc5a18035c854d5babfe9fe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/af/ef/dd/afefddd94f8a14018d875b6c436d6675.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/e8/44/cc/e844cca330436c649d24b28cc22d85bc.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/54/b5/01/54b50107288b9e4df513f0a6293607a3.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/7e/61/43/7e6143260212fa01af47785ace6edfef.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/80/29/b5/8029b536868412263927ecb699e47d93.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/c9/60/58/c96058849f63851ef447e10dcf3b498a.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/9f/ed/ae/9fedae67312c50001522120a9b298374.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/f4/3d/87/f43d879da8ecc18d4b9b88cb7a0d8379.jpg</x:String>
+			</x:Array>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ScrollView>
+		<StackLayout>
+			<Grid HeightRequest="300"
+				  RowSpacing="3"
+				  Padding="0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="150" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Grid Grid.RowSpan="4">
+					<ffimageloading:CachedImage Aspect="AspectFill"
+												Source="https://i.pinimg.com/236x/5c/44/42/5c444285373d437b97f1f0ee3fe20cb0.jpg">
+					</ffimageloading:CachedImage>
+					<BoxView BackgroundColor="Black"
+							 Opacity=".7" />
+				</Grid>
+
+				<FlexLayout Grid.Row="0"
+							AlignItems="Center">
+					<StackLayout Orientation="Horizontal"
+								 Spacing="5"
+								 FlexLayout.Grow="1">
+						<Image Source="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/94-128.png"
+							   HeightRequest="30"
+							   WidthRequest="30" />
+						<StackLayout Spacing="0">
+							<Label Text="Ribeirão Preto - SP"
+								   LineBreakMode="TailTruncation"
+								   MaxLines="3"
+								   FontSize="Micro"
+								   TextColor="White" />
+							<Label Text="BRA"
+								   FontSize="Micro"
+								   TextColor="White" />
+						</StackLayout>
+					</StackLayout>
+
+					<StackLayout FlexLayout.Grow="1.5"
+								 FlexLayout.AlignSelf="Stretch">
+						<Frame Padding="5"
+							   CornerRadius="65"
+							   VerticalOptions="CenterAndExpand"
+							   HorizontalOptions="CenterAndExpand">
+							<Image Source="https://cdn2.iconfinder.com/data/icons/xbox-one-controllers/500/gamer_titanfall-512.png"
+								   Aspect="AspectFill"
+								   HeightRequest="120"
+								   WidthRequest="120" />
+						</Frame>
+					</StackLayout>
+
+					<StackLayout FlexLayout.Grow="1"
+								 FlexLayout.AlignSelf="Center">
+						<Button Text="Seguir"
+								TextColor="White"
+								FontSize="Micro"
+								BorderColor="White"
+								BorderWidth="1"
+								BackgroundColor="Transparent"
+								HorizontalOptions="End" />
+						<!--<Button Text="Doar"
+								FontSize="Micro"/>-->
+					</StackLayout>
+				</FlexLayout>
+
+				<FlexLayout Grid.Row="1"
+							Direction="Column"
+							AlignItems="Center"
+							JustifyContent="SpaceAround">
+					<Label Text="Alvaro Resende Silva Faria, 27"
+						   TextColor="White" />
+					<BoxView HeightRequest="1"
+							 WidthRequest="100"
+							 BackgroundColor="White" />
+
+				</FlexLayout>
+			</Grid>
+
+
+			<Frame Grid.Row="2"
+				   Grid.RowSpan="2"
+				   Padding="1"
+				   CornerRadius="5"
+				   Margin="10,-35,10,0"
+				   BorderColor="White"
+				   HeightRequest="50"
+				   IsClippedToBounds="True"
+				   BackgroundColor="Black">
+
+				<FlexLayout AlignItems="Stretch"
+							JustifyContent="SpaceAround">
+
+					<Label Text="Monster ESports Team"
+						   TextColor="White"
+						   FontSize="Small"
+						   VerticalTextAlignment="Center"
+						   HorizontalTextAlignment="Center" />
+
+					<BoxView BackgroundColor="White"
+							 WidthRequest="1" />
+
+					<Label Text="Patrocine esse jogador"
+						   TextColor="White"
+						   FontSize="Small"
+						   VerticalTextAlignment="Center"
+						   HorizontalTextAlignment="Center" />
+				</FlexLayout>
+			</Frame>
+
+			<Label Text="Posts Mais Recentes"
+				   BackgroundColor="Black"
+				   TextColor="White"
+				   HorizontalTextAlignment="Center" />
+
+			<CollectionView ItemsSource="{Binding Source={x:StaticResource Imgs}}"
+							EmptyView="Nada aqui para mostrar">
+
+				<CollectionView.ItemsLayout>
+					<GridItemsLayout Orientation="Vertical"
+									 HorizontalItemSpacing="1"
+									 Span="2" />
+				</CollectionView.ItemsLayout>
+
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout>
+							<Frame Padding="1"
+								   BackgroundColor="White">
+								<ffimageloading:CachedImage x:Name="CurrentImage"
+															Source="{Binding }"
+															BitmapOptimizations="False"
+															CacheType="All"
+															Aspect="AspectFill"
+															HeightRequest="150"
+															CacheDuration="30">
+
+								</ffimageloading:CachedImage>
+
+							</Frame>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+
+		</StackLayout>
+	</ScrollView>
+
+</ContentPage>

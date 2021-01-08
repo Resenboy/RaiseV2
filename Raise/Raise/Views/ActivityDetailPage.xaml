@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+			 mc:Ignorable="d"
+             x:Class="Raise.Views.ActivityDetailPage">
+	<ContentPage.Content>
+		<Grid RowSpacing="0"
+			  ColumnSpacing="0"
+			  BackgroundColor="Black">
+
+			<Grid VerticalOptions="CenterAndExpand"
+				  HeightRequest="300">
+				<ffimageloading:CachedImage x:Name="CurrentImage"
+											Source="{Binding UrlPostImage}"
+											DownsampleToViewSize="True"
+											DownsampleUseDipUnits="True"
+											DownsampleWidth="300"
+											BitmapOptimizations="False"
+											CacheType="Memory"
+											Aspect="AspectFill"
+											CacheDuration="1">
+					<ffimageloading:CachedImage.GestureRecognizers>
+
+					</ffimageloading:CachedImage.GestureRecognizers>
+				</ffimageloading:CachedImage>
+
+				<ActivityIndicator IsVisible="{Binding IsLoading}"
+								   BindingContext="{x:Reference CurrentImage}"
+								   IsRunning="{Binding IsLoading}"
+								   Color="White"
+								   VerticalOptions="Center"
+								   HorizontalOptions="Center" />
+			</Grid>
+
+			<ContentView x:Name="ViewPostInfos">
+				<FlexLayout>
+
+					<Label Text="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+						   TextColor="White" />
+				</FlexLayout>
+			</ContentView>
+			<Grid.GestureRecognizers>
+				<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+									  NumberOfTapsRequired="1" />
+			</Grid.GestureRecognizers>
+			
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

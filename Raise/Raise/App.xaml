@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customRenderers="clr-namespace:Raise.CustomRenderers"
+             mc:Ignorable="d"
+             x:Class="Raise.App">
+    <Application.Resources>
+		<ResourceDictionary>
+			<!--<Color x:Key="corFundo">Red</Color>
+			<Color x:Key="corTexto">Blue</Color>-->
+
+			<Style TargetType="Label">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+			<Style TargetType="Button">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+			<Style TargetType="Editor">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+			<Style TargetType="Entry">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+			<Style TargetType="customRenderers:RoundedEntry">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+			<Style TargetType="customRenderers:RoundedEditor">
+				<Setter Property="FontFamily"
+						Value="Sarpanch-Regular.ttf#Sarpanch Regular" />
+			</Style>
+
+			<!--<Style x:Key="BackgroundViewColor"
+				   TargetType="ContentView">
+				<Setter Property="BackgroundColor"
+						Value="{DynamicResource corFundo}" />
+			</Style>-->
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customrenderers="clr-namespace:Raise.CustomRenderers"
+			 xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+			 mc:Ignorable="d"
+             x:Class="Raise.Views.NewPostActivity"
+			 Shell.NavBarIsVisible="False">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<x:Array Type="{x:Type x:String}"
+					 x:Key="Listinha">
+				<x:String>https://www.youtube.com/watch?v=HZtc5-syeAk</x:String>
+				<x:String>https://www.youtube.com/watch?v=IaCB77sci1c</x:String>
+				<x:String>https://www.youtube.com/watch?v=LgW-CzTgE70</x:String>
+				<x:String>https://www.youtube.com/watch?v=-OovOs5DAR4</x:String>
+			</x:Array>
+
+			<Style TargetType="Frame"
+				   x:Key="RoundedFrame">
+				<Setter Property="BorderColor"
+						Value="Black" />
+				<Setter Property="CornerRadius"
+						Value="20" />
+				<Setter Property="Visual"
+						Value="Default" />
+				<Setter Property="HasShadow"
+						Value="False" />
+				<Setter Property="BackgroundColor"
+						Value="White" />
+				<Setter Property="Margin"
+						Value="3,6,3,0" />
+				<Setter Property="WidthRequest"
+						Value="100" />
+				<Setter Property="HeightRequest"
+						Value="100" />
+				<Setter Property="IsClippedToBounds"
+						Value="True" />
+				<Setter Property="VerticalOptions"
+						Value="Center" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<!--<StackLayout>
+			<Frame>
+				<Button Text="Tipo" 
+						Clicked="TapGestureRecognizer_Tapped"></Button>
+			</Frame>-->
+		<StackLayout>
+			
+		
+			<Grid 
+				  VerticalOptions="Center"
+				  HorizontalOptions="Center"
+				  ColumnSpacing="30"
+				  RowSpacing="30"
+				  Margin="15">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Frame Style="{x:StaticResource RoundedFrame}">
+					<StackLayout>
+					<Image>
+						<Image.Source>
+							<FontImageSource FontFamily="FontAwesomeBold"
+											 Color="Black"
+											 Glyph="&#xf302;" />
+						</Image.Source>
+					</Image>
+						<Label Text="Carregar Foto"
+							   HorizontalTextAlignment="Center"/>
+					</StackLayout>
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding PickPhotoCommand}"/>
+				</Frame.GestureRecognizers>
+				</Frame>
+
+				<Frame Grid.Column="1"
+					   Grid.Row="0"
+					   Style="{x:StaticResource RoundedFrame}">
+					<StackLayout >
+					<Image>
+						<Image.Source>
+							<FontImageSource FontFamily="FontAwesomeBold"
+											 Color="Black"
+											 Glyph="&#xf030;" />
+						</Image.Source>
+					</Image>
+						<Label Text="Tirar Foto"
+						   HorizontalTextAlignment="Center" />
+					</StackLayout>
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+				</Frame.GestureRecognizers>
+			</Frame>
+
+			<Frame Grid.Column="0"
+				   Grid.Row="1"
+				   Style="{x:StaticResource RoundedFrame}">
+				<StackLayout>
+					<Image>
+						<Image.Source>
+							<FontImageSource FontFamily="FontAwesomeBold"
+											 Color="Black"
+											 Glyph="&#xf1c8;" />
+						</Image.Source>
+					</Image>
+					<Label Text="Carregar vídeo"
+						   HorizontalTextAlignment="Center"/>
+				</StackLayout>
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding PickVideoCommand}" />
+				</Frame.GestureRecognizers>
+			</Frame>
+
+			<Frame Grid.Column="1"
+				   Grid.Row="1"
+				   Style="{x:StaticResource RoundedFrame}">
+				<StackLayout>
+					<Image>
+						<Image.Source>
+							<FontImageSource FontFamily="FontAwesomeBold"
+											 Color="Black"
+											 Glyph="&#xf03d;" />
+						</Image.Source>
+					</Image>
+					<Label Text="Gravar vídeo"
+						   HorizontalTextAlignment="Center"/>
+				</StackLayout>
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding MakeVideoCommand}" />
+				</Frame.GestureRecognizers>
+			</Frame>
+
+			<!--<lottie:AnimationView x:Name="animationView2"
+								  Animation="https://assets1.lottiefiles.com/packages/lf20_itlqszh7.json"
+								  AnimationSource="Url"
+								  
+								  AutoPlay="true"
+								  HorizontalOptions="Center"
+								  VerticalOptions="CenterAndExpand"
+								  HeightRequest="50"
+								  WidthRequest="50"
+								  >
+			</lottie:AnimationView>-->
+
+		</Grid>
+
+			<forms:AnimationView x:Name="animationView"
+								 Grid.Row="1"
+								 Animation="raise"
+								 Loop="True"
+								 Speed=".4"
+								 AutoPlay="True"
+								 VerticalOptions="FillAndExpand"
+								 HorizontalOptions="FillAndExpand" />
+		</StackLayout>
+
+		<!--<Grid RowSpacing="0"
+				  ColumnSpacing="5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>-->
+
+				<!--<Frame Grid.Column="1"
+					   Padding="0"
+					   CornerRadius="40"
+					   BorderColor="Black"
+					   HorizontalOptions="End">
+					<Image HeightRequest="80"
+						   WidthRequest="80"
+						   Source="https://cdn2.iconfinder.com/data/icons/xbox-one-controllers/500/gamer_titanfall-512.png"
+						   Aspect="AspectFill">
+					</Image>
+				</Frame>-->
+
+				<!--<StackLayout Spacing="0">
+
+					<Label Text="Profile Name da Silva Junior Profile Name da Silva Junior"
+						   FontAttributes="Bold"
+						   VerticalOptions="CenterAndExpand"
+						   HorizontalOptions="CenterAndExpand"
+						   LineBreakMode="TailTruncation" />
+
+					<StackLayout Orientation="Horizontal"
+								 Margin="0,0,20,0">
+						<Label Text="Compartilhar com"
+							   FontAttributes="Italic"
+							   VerticalOptions="Start" />
+						<Picker FontSize="Small"
+								Title="Todos"
+								SelectedIndex="0"
+								HorizontalOptions="FillAndExpand"
+								Margin="0,-10,0,0"
+								ItemsSource="{x:StaticResource TypeShare}">
+						</Picker>
+					</StackLayout>
+
+				</StackLayout>-->
+
+			<!--</Grid>-->
+
+			<!--<customrenderers:RoundedEditor Placeholder="Escreva algo sobre este post..."
+										   HeightRequest="120"
+										   IsSpellCheckEnabled="True"
+										   CornerRadius="5"
+										   BorderColor="Black"
+										   Keyboard="Text"
+										   CustomPadding="5"
+										   AutoSize="TextChanges"
+										   IsTextPredictionEnabled="True" />-->
+
+			<!--<Frame Padding="0"
+				   CornerRadius="5"
+				   BorderColor="Black"
+				   VerticalOptions="FillAndExpand">
+				<Image Source="https://cdn1.iconfinder.com/data/icons/linkedin-ui-glyph/48/Sed-16-512.png"
+					   Aspect="AspectFill"
+					   x:Name="PostImage">
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+					</Image.GestureRecognizers>
+				</Image>
+			</Frame>-->
+
+			<!--<StackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="Black">
+				<WebView Source="https://youtu.be/xvjn6BopsV8" WidthRequest="150" HeightRequest="150"/>
+			</StackLayout>
+			
+			<CollectionView EmptyView="Vazio"
+							ItemsSource="{x:StaticResource Listinha}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Orientation="Vertical">
+							<WebView Source="{Binding}"
+									 WidthRequest="150"
+									 HeightRequest="300" />
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>-->
+
+			<!--<Frame Padding="0"
+				   CornerRadius="5"
+				   BorderColor="Black"
+				   VerticalOptions="FillAndExpand">
+				<videoPlayer:VideoPlayer x:Name="PostImage"
+										 DisplayControls="True"
+										 AutoPlay="True"
+										 >
+				</videoPlayer:VideoPlayer>
+			</Frame>-->
+			
+			<!--<Button Text="Lançar"
+					Clicked="Button_Clicked"
+					BackgroundColor="Black"
+					TextColor="White"
+					CornerRadius="5" />-->
+		<!--</StackLayout>-->
+	</ContentPage.Content>
+</ContentPage>

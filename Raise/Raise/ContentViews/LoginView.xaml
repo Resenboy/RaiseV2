@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customrenderers="clr-namespace:Raise.CustomRenderers"
+			 xmlns:customIcons="clr-namespace:Raise.Resources"
+			 mc:Ignorable="d"
+			 Style="{DynamicResource BackgroundViewColor}"
+             x:Class="Raise.ContentViews.LoginView">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Style TargetType="Image"
+				   x:Key="ImageIcon">
+				<Setter Property="HeightRequest"
+						Value="25" />
+				<Setter Property="WidthRequest"
+						Value="25" />
+				<Setter Property="Aspect"
+						Value="AspectFill" />
+			</Style>
+
+			<Style TargetType="Button"
+				   x:Key="RoundedButton">
+				<Setter Property="CornerRadius"
+						Value="10" />
+				<Setter Property="TextColor"
+						Value="White" />
+				<Setter Property="Padding"
+						Value="5" />
+			</Style>
+
+			<Style TargetType="customrenderers:RoundedEntry">
+				<Setter Property="BorderColor"
+						Value="Silver" />
+				<Setter Property="BorderWidth"
+						Value="1" />
+				<Setter Property="ClearButtonVisibility"
+						Value="WhileEditing" />
+				<Setter Property="IsCurvedCornersEnabled"
+						Value="True" />
+				<Setter Property="CornerRadius"
+						Value="20" />
+				<Setter Property="Margin"
+						Value="5,0,0,0" />
+				<Setter Property="HorizontalTextAlignment"
+						Value="Start" />
+				<Setter Property="CustomPadding"
+						Value="15,0" />
+				<Setter Property="BackgroundColor"
+						Value="White" />
+				<Setter Property="FontSize"
+						Value="Small" />
+				<Setter Property="FlexLayout.Grow"
+						Value="1" />
+				<Setter Property="HeightRequest"
+						Value="40" />
+			</Style>
+
+		</ResourceDictionary>
+	</ContentView.Resources>
+
+	<ContentView.Content>
+
+		<FlexLayout Direction="Column"
+					Padding="15,10"
+					JustifyContent="SpaceAround">
+
+			<StackLayout Spacing="10"
+						 FlexLayout.Grow="1"
+						 HorizontalOptions="StartAndExpand">
+				<Entry Placeholder="Email"
+					   ReturnType="Next"
+					   Keyboard="Email"
+					   Text="{Binding User.Email}" 
+					   FontSize="Small"
+					   CursorPosition="1"/>
+				
+				<Entry Placeholder="Senha"
+					   IsPassword="True"
+					   Text="{Binding User.Password}"
+					   ReturnType="Go"
+					   HeightRequest="40"
+					   FontSize="Small"
+					   />
+				
+				<!--<customrenderers:RoundedEntry Placeholder="Email"
+											  ReturnType="Next"
+											  Keyboard="Email"
+											  Text="{Binding User.Email}"
+											  />-->
+
+				<!--<customrenderers:RoundedEntry  Placeholder="Senha"
+											   IsPassword="True"
+											   Text="{Binding User.Password}"
+											   ReturnType="Go"
+											   HeightRequest="40"
+											   CursorPosition="2"/>-->
+			</StackLayout>
+
+			<FlexLayout Direction="Column"
+						AlignItems="Stretch"
+						JustifyContent="SpaceAround"
+						FlexLayout.Grow="3">
+				<StackLayout Orientation="Horizontal"
+							 FlexLayout.AlignSelf="End"
+							 Margin="0,-20,0,0">
+					<CheckBox Color="Black"
+							  IsChecked="{Binding User.RememberMe}" />
+					<Label Text="Lembrar de Mim"
+						   TextDecorations="Underline"
+						   VerticalOptions="Center"
+						   FontSize="Small" />
+				</StackLayout>
+				<Label Text="Esqueceu sua senha?"
+					   TextDecorations="Underline"
+					   VerticalOptions="EndAndExpand"
+					   FlexLayout.AlignSelf="End"
+					   FontSize="Small" />
+				<Button Text="Login"
+						FlexLayout.AlignSelf="Stretch"
+						BackgroundColor="Black"
+						Style="{x:StaticResource RoundedButton}"
+						Command="{Binding LoginCommand}"
+						CommandParameter="{Binding User}" />
+				<Label Text="Ou conecte-se via"
+					   FlexLayout.AlignSelf="Center"
+					   FontSize="Small" />
+				<StackLayout Spacing="5"
+							 HeightRequest="80"
+							 Margin="0,0,0,20">
+					<Button Text="Facebook"
+							TextColor="White"
+							BackgroundColor="#4464A9"
+							Style="{x:StaticResource RoundedButton}"></Button>
+					<Button Text="Google"
+							BackgroundColor="#A93528"
+							Style="{x:StaticResource RoundedButton}"></Button>
+					<!--<Frame HorizontalOptions="CenterAndExpand"
+						   BorderColor="LightGray"
+						   CornerRadius="40">
+                        <Image Source="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"
+							   HeightRequest="40"
+							   WidthRequest="40">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+
+					<Frame HorizontalOptions="CenterAndExpand"
+						   BorderColor="LightGray"
+						   CornerRadius="40">
+						<Image Source="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Google-512.png"
+							   HeightRequest="40"
+							   WidthRequest="40" />
+					</Frame>-->
+
+				</StackLayout>
+			</FlexLayout>
+
+		</FlexLayout>
+
+	</ContentView.Content>
+</ContentView>

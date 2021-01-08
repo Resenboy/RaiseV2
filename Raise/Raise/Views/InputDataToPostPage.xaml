@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:customrenderers="clr-namespace:Raise.CustomRenderers"
+			 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+			 mc:Ignorable="d"
+			 Shell.NavBarIsVisible="False"
+			 BackgroundColor="Black"
+			 xmlns:syncfusion="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
+			 xmlns:videoPlayer="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+			 x:Class="Raise.Views.InputDataToPostPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="70" />
+				<RowDefinition Height="300" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<!--<syncfusion:SfImageEditor Source="https://support.activision.com/content/dam/atvi/support/home/modules/wide/cod-mobile-hpMod-wide.jpg"
+									  
+									  x:Name="ReceivedFile"
+									  VerticalOptions="FillAndExpand"
+									  HorizontalOptions="FillAndExpand"
+									  Visual="Material"
+									  Grid.ColumnSpan="2"
+									  Grid.Row="1">
+				
+			</syncfusion:SfImageEditor>-->
+
+			<!--<Editor Text="Edite Aqui"
+					Grid.Column="1"
+					Grid.Row="0"
+					HorizontalOptions="Start"
+					TextColor="White"
+					BackgroundColor="Red"
+					AutoSize="TextChanges">
+			</Editor>-->
+			<Frame Padding="0"
+				   CornerRadius="5"
+				   BorderColor="Black"
+				   VerticalOptions="Center">
+				<videoPlayer:VideoPlayer x:Name="ReceivedFileVideo"
+										 DisplayControls="True"
+										 AutoPlay="True"
+										 >
+				</videoPlayer:VideoPlayer>
+			</Frame>
+
+			<Image Source="https://support.activision.com/content/dam/atvi/support/home/modules/wide/cod-mobile-hpMod-wide.jpg"
+				   Aspect="AspectFit"
+				   x:Name="ReceivedFileImage"
+				   VerticalOptions="FillAndExpand"
+				   HorizontalOptions="FillAndExpand"
+				   Visual="Material"
+				   Grid.ColumnSpan="2"
+				   Grid.Row="1">
+				<Image.GestureRecognizers>
+					<PinchGestureRecognizer PinchUpdated="PinchGestureRecognizer_PinchUpdated" />
+					<PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+				</Image.GestureRecognizers>
+			</Image>
+
+			<Button Text="Publicar"
+				   	HorizontalOptions="End"
+					VerticalOptions="Center"
+					FontSize="Micro"
+					BackgroundColor="Transparent"
+					BorderColor="White"
+					BorderWidth="1"
+					CornerRadius="10"
+					TextColor="White"
+					Grid.Column="1" 
+					Grid.Row="0"/>
+
+			<Expander Grid.ColumnSpan="2"
+					  Grid.Row="2">
+				<Expander.Header>
+					<Label Text="Escrever algo sobre este post."
+						   TextColor="White"
+						   HorizontalTextAlignment="Center"/>
+					<!--<Image Source="https://cdn4.iconfinder.com/data/icons/ibrandify-basic-essentials-icon-set/512/pen_stroke_sketch_doodle_lineart_218-64.png" 
+						   HorizontalOptions="Start"/>-->
+				</Expander.Header>
+
+				<Expander.ContentTemplate>
+					<DataTemplate>
+						<StackLayout VerticalOptions="FillAndExpand">
+							<customrenderers:RoundedEditor Placeholder="Escreva algo sobre este post..."
+														   PlaceholderColor="White"
+														   BackgroundColor="WhiteSmoke"
+														   HeightRequest="165"
+														   CustomPadding="5"
+														   Margin="1"
+														   IsSpellCheckEnabled="True"
+														   CornerRadius="5"
+														   Keyboard="Text"
+														   AutoSize="TextChanges"
+														   IsTextPredictionEnabled="True" />
+							<!--<Editor Placeholder="Escrever"
+									IsSpellCheckEnabled="True"
+									Keyboard="Text"
+									AutoSize="TextChanges"
+									IsTextPredictionEnabled="True"
+									HeightRequest="120"></Editor>-->
+						</StackLayout>
+						
+					</DataTemplate>
+				</Expander.ContentTemplate>
+			</Expander>
+			
+		</Grid>
+    </ContentPage.Content>
+</ContentPage>

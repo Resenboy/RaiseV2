@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Raise.Views.StartupPage">
+	
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<x:Array Type="{Type x:String}"
+					 x:Key="StartupList">
+				<x:String>https://i.pinimg.com/564x/15/48/d8/1548d80cca7cd97aadf80c6b8b0acd5b.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/79/80/bd/7980bdc2493ac22eb549eae04dcb4dfe.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/df/9b/ec/df9bec274f89d3f4b85e2c5ac48722a6.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/d1/59/e9/d159e9ca272b73f56ef2b770a7c0b17b.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/81/98/55/8198552e6b3d34a273b2ec581be41699.jpg</x:String>
+				<x:String>https://i.pinimg.com/564x/88/39/ff/8839ffa889760acab02059514309326c.jpg</x:String>
+
+			</x:Array>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<Grid>
+			<CarouselView x:Name="CarouselPager"
+						  ItemsSource="{Binding Source={x:StaticResource StartupList}}">
+				<CarouselView.ItemTemplate>
+					<DataTemplate>
+						<Image Source="{Binding}"
+							   Aspect="AspectFill" />
+					</DataTemplate>
+				</CarouselView.ItemTemplate>
+			</CarouselView>
+			<IndicatorView VerticalOptions="End"
+						   Margin="10"
+						   IndicatorColor="Gray"
+						   IndicatorSize="10"
+						   BindingContext="{x:Reference CarouselPager}"
+						   SelectedIndicatorColor="White">
+				<IndicatorView.Triggers>
+					<DataTrigger TargetType="IndicatorView"
+								 Binding="{Binding Path=Position}"
+								 Value="5">
+						<Setter Property="IsVisible"
+								Value="False" />
+					</DataTrigger>
+				</IndicatorView.Triggers>
+			</IndicatorView>
+
+			<Label Text="Pular"
+				   TextColor="White"
+				   TextDecorations="Underline"
+				   VerticalOptions="End"
+				   HorizontalOptions="End"
+				   BindingContext="{x:Reference CarouselPager}"
+				   Padding="50,15,5,5"
+				   Margin="5">
+				<Label.Triggers>
+					<DataTrigger TargetType="Label"
+								 Binding="{Binding Path=Position}"
+								 Value="5">
+						<Setter Property="Text"
+								Value="Começar" />
+					</DataTrigger>
+				</Label.Triggers>
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Tapped="SkipStartup_Tapped"
+										  NumberOfTapsRequired="1" />
+				</Label.GestureRecognizers>
+			</Label>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
